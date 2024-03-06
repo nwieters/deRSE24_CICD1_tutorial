@@ -12,3 +12,19 @@ jobs:
       - name: list files
         run: |
           ls ${{ github.workspace}}
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          #pip install -r requirements.txt
+      - run: echo "Hello CI" > hello.txt
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: hello
+          path: hello.txt
+          retention-dazs: 1
+          if-no-files-found: error
