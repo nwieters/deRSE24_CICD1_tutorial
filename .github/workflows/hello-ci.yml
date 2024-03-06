@@ -26,5 +26,5 @@ jobs:
         with:
           name: hello
           path: hello.txt
-          retention-dazs: 1
+          retention-days: 1
           if-no-files-found: error
